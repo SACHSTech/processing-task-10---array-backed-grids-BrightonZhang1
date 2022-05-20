@@ -55,11 +55,117 @@ public class Sketch extends PApplet {
       for(int column = 0; column < intColumnCount; column++ ){
         if(mouseX > column * (intCellHeight + intMargin) + intMargin && mouseX < column * (intCellHeight + intMargin) + intMargin + 20 && mouseY > row * (intCellWidth + intMargin) + intMargin && mouseY < row * (intCellWidth + intMargin) + intMargin + 20){
           System.out.println("grid coordinates: (row: " + (row + 1) + ", column: " + (column + 1) + ")");
-          if(intGrid[row][column] == 1){
-            intGrid[row][column] = 0;
+          if(intGrid[row][column] == 1 && row < intGrid.length - 1 && row > 0 && column < intGrid[row].length - 1 && column > 0){
+            //square clicked
+            if(intGrid[row][column] == 1){
+              intGrid[row][column] = 0;
+            }
+            else if(intGrid[row][column] == 0){
+              intGrid[row][column] = 1;
+            }
+            //square above
+            if(intGrid[row - 1][column] == 1){
+              intGrid[row - 1][column] = 0;
+            }
+            else if(intGrid[row - 1][column] == 0){
+              intGrid[row - 1][column] = 1;
+            }
+            //square below
+            if(intGrid[row + 1][column] == 1){
+              intGrid[row + 1][column] = 0;
+            }
+            else if(intGrid[row + 1][column] == 0){
+              intGrid[row + 1][column] = 1;
+            }
+            //square right
+            if(intGrid[row][column + 1] == 1){
+              intGrid[row][column + 1] = 0;
+            }
+            else if(intGrid[row][column + 1] == 0){
+              intGrid[row][column + 1] = 1;
+            }
+            //square left
+            if(intGrid[row][column - 1] == 1){
+              intGrid[row][column - 1] = 0;
+            }
+            else if(intGrid[row][column - 1] == 0){
+              intGrid[row][column - 1] = 1;
+            }
           }
-          else if(intGrid[row][column] == 0){
-            intGrid[row][column] = 1;
+
+          //top right corner
+          else if(row == 0 && column == intGrid[row].length - 1){
+            //square clicked
+            if(intGrid[row][column] == 1){
+              intGrid[row][column] = 0;
+            }
+            else if(intGrid[row][column] == 0){
+              intGrid[row][column] = 1;
+            }
+            //square left
+            if(intGrid[row][column - 1] == 1){
+              intGrid[row][column - 1] = 0;
+            }
+            else if(intGrid[row][column - 1] == 0){
+              intGrid[row][column - 1] = 1;
+            }
+            //square below
+            if(intGrid[row + 1][column] == 1){
+              intGrid[row + 1][column] = 0;
+            }
+            else if(intGrid[row + 1][column] == 0){
+              intGrid[row + 1][column] = 1;
+            }
+          }
+
+          //bottom left corner
+          else if(row == intGrid.length - 1 && column == 0){
+            //square clicked
+            if(intGrid[row][column] == 1){
+              intGrid[row][column] = 0;
+            }
+            else if(intGrid[row][column] == 0){
+              intGrid[row][column] = 1;
+            }
+            //square right
+            if(intGrid[row][column + 1] == 1){
+              intGrid[row][column + 1] = 0;
+            }
+            else if(intGrid[row][column + 1] == 0){
+              intGrid[row][column + 1] = 1;
+            }
+            //square up
+            if(intGrid[row - 1][column] == 1){
+              intGrid[row - 1][column] = 0;
+            }
+            else if(intGrid[row - 1][column] == 0){
+              intGrid[row - 1][column] = 1;
+            }
+          }
+          //bottom right corner
+          else if(row == intGrid.length - 1 && column == intGrid[row].length - 1){
+            //square clicked
+            if(intGrid[row][column] == 1){
+              intGrid[row][column] = 0;
+            }
+            else if(intGrid[row][column] == 0){
+              intGrid[row][column] = 1;
+            }
+            //square left
+            if(intGrid[row][column - 1] == 1){
+              intGrid[row][column - 1] = 0;
+            }
+            else if(intGrid[row][column - 1] == 0){
+              intGrid[row][column - 1] = 1;
+            }
+            //square up
+            if(intGrid[row - 1][column] == 1){
+              intGrid[row - 1][column] = 0;
+            }
+            else if(intGrid[row - 1][column] == 0){
+              intGrid[row - 1][column] = 1;
+            }
+           
           }
         }
       }
