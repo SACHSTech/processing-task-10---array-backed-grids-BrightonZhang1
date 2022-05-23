@@ -7,7 +7,7 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
   // global variables
-	int intCellWidth = 20;
+  int intCellWidth = 20;
   int intCellHeight = 20;
   int intMargin = 5;
   int intRowCount = 10;
@@ -47,7 +47,6 @@ public class Sketch extends PApplet {
           fill(0,255,0);
           rect(column * (intCellWidth + intMargin) + intMargin, row * (intCellHeight + intMargin) + intMargin, intCellWidth, intCellHeight);
         }
-        
         else{
           fill(255);
           rect(column * (intCellWidth + intMargin) + intMargin, row * (intCellHeight + intMargin) + intMargin, intCellWidth, intCellHeight);
